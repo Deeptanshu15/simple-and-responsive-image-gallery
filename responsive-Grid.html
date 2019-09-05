@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <title>Responsive Grid Layout</title>
+        <link rel="stylesheet" href="responsive-grid.css">
+    </head>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".items").mousemove(function(event) {
+                var relX = event.pageX - $(this).offset().left;
+                var relY = event.pageY - $(this).offset().top;
+                var divWidth = $(this).width();
+                var divHeight = $(this).height();
+                var divCenterX = divWidth / 2;
+                var divCenterY = divHeight / 2;
+                var perspectiveOriginX = $(this).offset().left + divCenterX;
+                var perspectiveOriginY = $(this).offset().top + divCenterY;
+                var onHoverRotateX = (relX - divCenterX)/10.0;
+                
+                var onHoverRotateY = (divCenterY - relY)/10.0;
+                console.log(onHoverRotateY);
+                $(".grid-container").css({"perspective-origin" : perspectiveOriginX +"px " +perspectiveOriginY +"px"})
+                
+                var rotate = onHoverRotateX / 3.0;
+                if(onHoverRotateY<0){
+                    rotate *= -1;
+                }
+                $(this).css({"transform":"rotate3d(" + onHoverRotateX*30 + "," + onHoverRotateY*30 + "," + "0," + rotate + "deg)"});
+            })
+        })
+
+        $(document).ready(function() {
+            $(".items").mouseleave(function(event) {
+                $(this).css({"transform":"rotate3d(0,0,0,0deg)"});
+            })
+        })
+    </script>
+
+    <body>
+        <div class="grid-container">
+            
+            <div class="item1 items">
+                <div class="overlay">ITEM-1</div>
+            </div>
+            
+            
+            <div class="item2 items">
+                    <div class="overlay">ITEM-2</div>
+            </div>
+            
+            
+            <div class="item3 items">
+                <div class="overlay">ITEM-3</div>
+            </div>
+            
+            
+            <div class="item4 items">
+                <div class="overlay">ITEM-4</div>
+            </div>
+            
+            
+            <div class="item5 items">
+                <div class="overlay">ITEM-5</div>
+            </div>
+            
+            
+            <div class="item6 items">
+                <div class="overlay">ITEM-6</div>
+            </div>
+            
+        </div>
+    </body>
+</html>
