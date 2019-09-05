@@ -10,21 +10,22 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $(".items").mousemove(function(event) {
-                var relX = event.pageX - $(this).offset().left;
-                var relY = event.pageY - $(this).offset().top;
+                var relX = event.pageX - $(this).offset().left; //x position within div
+                var relY = event.pageY - $(this).offset().top;  //y position within div
                 var divWidth = $(this).width();
                 var divHeight = $(this).height();
-                var divCenterX = divWidth / 2;
-                var divCenterY = divHeight / 2;
-                var perspectiveOriginX = $(this).offset().left + divCenterX;
+                var divCenterX = divWidth / 2;  //x coordinate of center of div
+                var divCenterY = divHeight / 2; //y coordinate of center of div
+                var perspectiveOriginX = $(this).offset().left + divCenterX; //perspective origin wrt parent div .grid-container
                 var perspectiveOriginY = $(this).offset().top + divCenterY;
+                
                 var onHoverRotateX = (relX - divCenterX)/10.0;
                 
                 var onHoverRotateY = (divCenterY - relY)/10.0;
-                console.log(onHoverRotateY);
+     
                 $(".grid-container").css({"perspective-origin" : perspectiveOriginX +"px " +perspectiveOriginY +"px"})
                 
-                var rotate = onHoverRotateX / 3.0;
+                var rotate = onHoverRotateX / 3.0; // decrease this no.(denominator) to rotate more
                 if(onHoverRotateY<0){
                     rotate *= -1;
                 }
