@@ -25,17 +25,19 @@
      
                 $(".grid-container").css({"perspective-origin" : perspectiveOriginX +"px " +perspectiveOriginY +"px"})
                 
-                var rotate = onHoverRotateX / 3.0; // decrease this no.(denominator) to rotate more or vice versa
+                var rotate = onHoverRotateX / 3.6; // decrease this no.(denominator) to rotate more or vice versa
                 if(onHoverRotateY<0){
                     rotate *= -1;
                 }
                 $(this).css({"transform":"rotate3d(" + onHoverRotateX*30 + "," + onHoverRotateY*30 + "," + "0," + rotate + "deg)"});
+                $(this).css({"z-index":"1"}); // highlighted image should be on top
             })
         })
 
         $(document).ready(function() {
             $(".items").mouseleave(function(event) {
                 $(this).css({"transform":"rotate3d(0,0,0,0deg)"});
+                $(this).css({"z-index":"0"});
             })
         })
     </script>
