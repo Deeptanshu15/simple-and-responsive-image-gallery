@@ -1,8 +1,21 @@
+.pointer{
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    border: 1px solid rgb(0, 116, 96);
+    border-radius: 8px;
+    background: #00e8d9;
+    margin-top: 10px;
+    margin-left: 10px;
+    z-index: 2;
+    
+}
+
 @media (min-width: 701px){
 body{
     margin: 0;
     padding: 0;
-    background: #232323;
+    background-image: linear-gradient(to right top, #4d53d8, #4d52d9, #4d52db, #4e51dc, #4e50dd, #3966eb, #217af6, #008dff, #00b2ff, #00d0fd, #00e8d9, #5ffbb0);
 }
 }
 .grid-container{
