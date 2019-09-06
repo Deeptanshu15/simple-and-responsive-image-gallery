@@ -40,9 +40,24 @@
                 $(this).css({"z-index":"0"});
             })
         })
+        
+        $(document).ready(function() {
+            $("body").mousemove(function(event) {
+                var x = event.pageX;
+                var y = event.pageY;
+                
+                $(".pointer").css({"margin-top":y+"px"});
+                $(".pointer").css({"margin-left":x+"px"});
+            })
+
+        })
     </script>
 
     <body>
+        
+        <div class="pointer">
+        </div>
+        
         <div class="grid-container">
             
             <div class="item1 items">
